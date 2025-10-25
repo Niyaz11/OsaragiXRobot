@@ -194,7 +194,7 @@ async def _info(_, message):
             pass
 
     if is_owner(user_id):
-        text += "\n\nHe is my cute neko Arshhhhhhhhh <3"
+        text += "\n\nHe is my Owner Kira @EternalsHelplineBot <3"
 
     elif is_dev(user_id):
         text += "\n\nOne of my developers, respect ++"
@@ -202,7 +202,7 @@ async def _info(_, message):
     if await banned(user_id):
         chec = us.get_info(user_id)
         text += "<b>\n\nVanitas:\n</b>"
-        text += "<b>This person is banned in @SpamWatchingBot!</b>"
+        text += "<b>This person is banned in @EternalsHelplineBot!</b>"
         text += f"\nReason: <pre>{chec['reason']}</pre>"
         text += "\nAppeal at @VanitasSupport"
     else:
