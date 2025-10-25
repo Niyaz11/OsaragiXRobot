@@ -17,7 +17,7 @@ chat_db = db.chats
 
 active_clone_clients = {}
 
-_PACKAGE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))  # .../Emilia
+_PACKAGE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))  
 _REPO_ROOT = os.path.abspath(os.path.join(_PACKAGE_DIR, os.pardir))  # repo root containing the Emilia package
 _LOGS_DIR = os.path.join(_REPO_ROOT, "clone_logs")
 os.makedirs(_LOGS_DIR, exist_ok=True)
