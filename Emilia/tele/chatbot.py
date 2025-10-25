@@ -17,7 +17,7 @@ from Emilia.custom_filter import register
 from Emilia.functions.admins import is_admin
 from Emilia.utils.decorators import *
 
-API_KEY = os.getenv("GEMINI_API_KEY", "AIzaSyCOmjy8uLSCDLrL-fNeE6jQGySM9_x_CgY") # Get your API key from Google Gemini API
+API_KEY = "AIzaSyCOmjy8uLSCDLrL-fNeE6jQGySM9_x_CgY" # Get your API key from Google Gemini API
 client = genai.Client(api_key=API_KEY)
 chatbotdb = db.chatbotto
 convodb = db.gemini_convos
@@ -371,6 +371,7 @@ async def chatt(event, query):
 
 
 random_response = [
+    "hi How are you",
     "I'm sorry, I don't have an answer for that.",
     "I'm not sure, can you please rephrase your question?",
     "I'm still learning, give me some time to improve.",
