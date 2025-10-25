@@ -206,7 +206,7 @@ async def _info(_, message):
         text += f"\nReason: <pre>{chec['reason']}</pre>"
         text += "\nAppeal at @VanitasSupport"
     else:
-        text += "<b>\n\n@SpamWatchingBot:</b> Not banned"
+        text += "<b>\n\n@AnimeNexusNetwork:</b> Not banned"
 
     if user.photo:
         pic = await _.download_media(user.photo.big_file_id)
@@ -217,7 +217,7 @@ async def _info(_, message):
 
 
 @usage("/ginfo [chat id/username]")
-@example("/ginfo @SpiralTechDivision")
+@example("/ginfo @EternalsHelplineBot")
 @description(
     "This will fetch a group chat's information. It may not work if the bot is banned or have not seen the particular chat."
 )
