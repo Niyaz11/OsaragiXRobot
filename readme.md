@@ -1,28 +1,3 @@
-<h1 align="center"> 
-    ✨ Emilia Bot ✨ 
-</h1>
-
-<p align="center">
-    <img src="https://pic-bstarstatic.akamaized.net/ugc/9e98b6c8872450f3e8b19e0d0aca02deff02981f.jpg" alt="Emilia Bot" width="300"/>
-</p>
-
-<h3 align="center"> 
-An advanced, feature-rich bot for Telegram with anime modules, AI chat capabilities, and robust group management!
-</h3>
-
-<p align="center">
-    <a href="https://python.org">
-        <img src="http://forthebadge.com/images/badges/made-with-python.svg" alt="made-with-python">
-    </a>
-    <a href="https://github.com/ArshCypherZ">
-        <img src="http://ForTheBadge.com/images/badges/built-with-love.svg" alt="built-with-love">
-    </a>
-    <br>
-    <img src="https://img.shields.io/github/license/ArshCypherZ/Emilia?style=for-the-badge" alt="LICENSE">
-</p>
-
----
-
 ## Key Features
 
 ➩ **Group Management** - Keep servers organized with efficient moderation tools.  
