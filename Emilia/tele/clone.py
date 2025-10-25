@@ -66,9 +66,9 @@ async def create_clone_client(user_id, token, bot_id):
 
     try:
         env = os.environ.copy()
-        env["EMILIA_IS_CLONE"] = "true"
-        env["EMILIA_TOKEN"] = token
-        env["EMILIA_OWNER_ID"] = str(user_id)
+        env["BOT_IS_CLONE"] = "true"
+        env["BOT_TOKEN"] = token
+        env["BOT_OWNER_ID"] = str(user_id)
         env["PYTHONUNBUFFERED"] = "1"
 
         # Prepare per-clone log files to capture subprocess output for debugging
@@ -144,7 +144,7 @@ async def create_clone_client(user_id, token, bot_id):
                 sys.executable,
                 "-u",
                 "-m", 
-                "Emilia"
+                "Osaragi"
             ]
             
             popen = subprocess.Popen(
@@ -188,7 +188,7 @@ async def create_clone_client(user_id, token, bot_id):
                 sys.executable,
                 "-u",
                 "-m",
-                "Emilia",
+                "Osaragi",
                 env=env,
                 cwd=_REPO_ROOT,
                 stdout=stdout_f,
@@ -333,12 +333,12 @@ async def clone_bot(event):
     if IS_CLONE:
         return await event.reply("This feature is only available for the original bot.")
     if not event.is_private:
-        return await event.reply("Please clone **Emilia** in your private chat.")
+        return await event.reply("Please clone **Bot** in your private chat.")
     user_id = event.sender_id
     check = await clone_db.find_one({"_id": user_id})
     if check:
         return await event.reply(
-            "You have already cloned **Emilia**. If you want to delete the clone, use `/deleteclone <bottoken>`"
+            "You have already cloned **@AnimeNexusNetwork**. If you want to delete the clone, use `/deleteclone <bottoken>`"
         )
     if len(event.text.split()) == 1:
         return await event.reply(
@@ -396,12 +396,12 @@ async def clone_bot(event):
             )
         else:
             await wait.delete()
-            await event.reply("An unexpected error occurred. Please try again or contact support @SpiralTechDivision.")
+            await event.reply("An unexpected error occurred. Please try again or contact support @AnimeNexusNetwork")
             
     except Exception as e:
         LOGGER.error(f"An error occurred while cloning: {e}")
         await wait.delete()
-        await event.reply("An error occurred while cloning **Emilia**. Please try again or contact support @SpiralTechDivision.")
+        await event.reply("An error occurred while cloning **Bot**. Please try again or contact support @EternalsHelplineBot.")
 
 @register(pattern="deleteclone")
 async def delete_cloned(event):
@@ -413,11 +413,11 @@ async def delete_cloned(event):
     check = await clone_db.find_one({"_id": user_id})
     if not check:
         return await event.reply(
-            "You have not cloned **Emilia** yet. If you want to clone it, use `/clone <bottoken>`"
+            "You have not cloned **Bot** yet. If you want to clone it, use `/clone <bottoken>`"
         )
     if len(event.text.split()) == 1:
         return await event.reply(
-            "Please provide the bot token from @BotFather in order to delete the cloned **Emilia**. Example: `/deleteclone 219218219:jksswq`"
+            "Please provide the bot token from @BotFather in order to delete the cloned **Bot**. Example: `/deleteclone 219218219:jksswq`"
         )
     token = event.text.split(None, 1)[1]
     if check["token"] != token:
@@ -481,7 +481,7 @@ async def delete_clone_internal(user_id):
 @register(pattern="setstartpic")
 async def set_startpic(event):
     if not IS_CLONE:
-        return await event.reply("This feature is only available in cloned bots. Learn more about cloning Emilia by using `/help Clone`.")
+        return await event.reply("This feature is only available in cloned bots. Learn more about cloning @AnimeNexusNetwork by using `/help Clone`.")
 
     me = await event.client.get_me()
     current_bot_id = me.id
