@@ -7,14 +7,14 @@ from telethon import events
 from Emilia import telethn, IS_CLONE
 
 OWO = [
-    "Emilia is always here for my Senpai >w<",
+    "Osaragi is always here for my Senpai >w<",
     "You called for me? :p",
     "*bites*",
     "nya~ i am here!!!",
     "*listens*",
     "I came only for you <3",
     "Want me to pat you? You sneaky lil fox!",
-    "Yes, I am Emilia",
+    "Yes, I am Osaragi",
     "Nobody calls me by my name, I am supreme :p",
     "Well well, I came, now what?",
     "nya nya nyaaaaa",
@@ -77,9 +77,10 @@ OWO = [
 ]
 
 
-@telethn.on(events.NewMessage(pattern="(?i)Emilia$"))
+@telethn.on(events.NewMessage(pattern="(?i)Osaragi$"))
 async def Emi_(m: events.NewMessage):
     if IS_CLONE:
         return
     uwu = random.choice(OWO)
     await m.reply(uwu)
+
