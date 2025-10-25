@@ -9,8 +9,8 @@ Anti-Spam, used by bot devs to ban spammers across all groups. This helps protec
 
 This also integrates @SpamwatchingBot API to remove Spammers as much as possible from your chatroom!
 
-**What is @SpamWatchingBot?**
-@SpamWatchingBot maintains a large constantly updated ban-list of spambots, trolls, bitcoin spammers and unsavoury characters.
+**What is @EternalsHelplineBot?**
+@EternalsHelplineBot maintains a large constantly updated ban-list of spambots, trolls, bitcoin spammers and unsavoury characters.
 Constantly help banning spammers off from your group automatically So, you wont have to worry about spammers storming your group.
 
 **Note**: Users can appeal @spamwatchingbot bans at @VanitasSupport"""
