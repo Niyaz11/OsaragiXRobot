@@ -477,7 +477,7 @@ Here is a breakdown of each rank and its corresponding minimum points:
 
 Players start as Elves and can progress through the ranks by earning points. As they accumulate the required points, they unlock higher ranks, indicating their progression and growth within the game.
 
-As the chat level game will get popular, we will add more levels and exciting features to it. Please contribute suggestions at @SpiralTechDivision
+As the chat level game will get popular, we will add more levels and exciting features to it. Please contribute suggestions at @EternalsHelplineBot
 """
     await event.reply(response)
 
