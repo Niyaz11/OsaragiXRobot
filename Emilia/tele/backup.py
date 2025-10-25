@@ -85,7 +85,7 @@ async def send():
     except Exception:
         size_mb = 0
     ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    caption = f"**Emilia MongoDB Backup**\n**Date**: `{ts}`\n**Size**: `{size_mb:.1f} MB`"
+    caption = f"**Bot MongoDB Backup**\n**Date**: `{ts}`\n**Size**: `{size_mb:.1f} MB`"
 
     sent = await _send_with_retry(out_zip, caption)
     if not sent:
