@@ -24,5 +24,5 @@ async def joke(client, message):
             await message.reply(get3)
     except Exception as e:
         return await message.reply(
-            str(e) + "\nPlease report to support chat @SpiralTechDivision"
+            str(e) + "\nPlease report to support chat @EternalsHelplineBot"
         )
