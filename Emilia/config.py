@@ -14,13 +14,13 @@ class Config(object):
     BOT_ID = 8015912062 # BOT_ID
     BOT_USERNAME = "OsaragiXRobot" # BOT_USERNAME
 
-    MONGO_DB_URL = "mongodb+srv://osaragixrobot:fCW12lWsOiwgqSfw@cluster0.lddzvly.mongodb.net/" # MongoDB URL from MongoDB Atlas
+    MONGO_DB_URL = "" # MongoDB URL from MongoDB Atlas
 
     SUPPORT_CHAT = "EternalsHelplineBot" # Support Chat Username
     UPDATE_CHANNEL = "AnimeNexusNetwork" # Update Channel Username
     START_PIC = "https://i.ibb.co/DgpFbXsW/tmpfgm5zme3.jpg" # Start Image
     DEV_USERS = [7654385403,7852686677] # Dev Users
-    TOKEN = "7845096754:AAFO_ygnphczbqac53JrqalzPSVUOg50dNc" # Bot Token from @BotFather
+    TOKEN = "" # Bot Token from @BotFather
     CLONE_LIMIT = 0 # Number of clones your bot can make
 
     EVENT_LOGS = -1002456565415 # Event Logs Chat ID
