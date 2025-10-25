@@ -373,7 +373,7 @@ async def clone_bot(event):
             return
         elif result == "error":
             await wait.delete()
-            await event.reply("An error occurred while creating your clone. Please try again or contact support @SpiralTechDivision.")
+            await event.reply("An error occurred while creating your clone. Please try again or contact support @EternalsHelplineBot.")
             return
         elif result == "success":
             await clone_db.update_one(
