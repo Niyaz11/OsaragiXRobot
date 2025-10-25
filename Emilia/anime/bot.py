@@ -342,7 +342,7 @@ async def connect_(client: Client, message: Message, mdata: dict):
                     text=(
                         "Channel already connected"
                         + "\nIf someone else has access to it who doesn't own "
-                        + "the channel, contact @SpiralTechDivision"
+                        + "the channel, contact @EternalsHelplineBot"
                     ),
                 )
                 return
@@ -469,7 +469,7 @@ async def feed_(client: Client, message: Message, mdata: dict):
     await client.send_message(
         mdata["chat"]["id"],
         f"For issues or queries please contact "
-        + f"@{owner} or join @SpiralTechDivision",
+        + f"@{owner} or join @EternalsHelplineBot",
     )
 
 
