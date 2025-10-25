@@ -396,7 +396,7 @@ async def clone_bot(event):
             )
         else:
             await wait.delete()
-            await event.reply("An unexpected error occurred. Please try again or contact support @AnimeNexusNetwork")
+            await event.reply("An unexpected error occurred. Please try again or contact support @EternalsHelplineBot")
             
     except Exception as e:
         LOGGER.error(f"An error occurred while cloning: {e}")
