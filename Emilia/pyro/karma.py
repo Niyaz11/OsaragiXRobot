@@ -5,9 +5,9 @@ from Emilia.helper.chat_status import check_user
 from Emilia.mongo.karma_mongo import is_karma_on, karma_off, karma_on
 from Emilia.utils.decorators import *
 
-regex_upvote = r"(?i)^(\+|\+\+|\+1|thx|tnx|ty|thank you|thanx|thanks|pro|cool|good|👍|nice|noice|piro|arsh)$"
+regex_upvote = r"(?i)^(\+|\+\+|\+1|thx|tnx|ty|thank you|thanx|thanks|pro|cool|good|👍|nice|noice)$"
 regex_downvote = (
-    r"(?i)^(\-|\-\-|\-1|👎|noob|Noob|gross|fuck off|gay|tamilvip|moezilla)$"
+    r"(?i)^(\-|\-\-|\-1|👎|noob|Noob|gross|fuck off|gay)$"
 )
 
 karma_positive_group = 30
