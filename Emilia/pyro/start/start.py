@@ -18,7 +18,7 @@ from Emilia.anime.bot import help_
 
 START_TEXT = """
 <b><blockquote>ʜᴇʟʟᴏ ɪ ᴀᴍ [{}]({}) AI ɪɴᴛᴇʀɢʀᴀᴛᴇᴅ ᴀɴɪᴍᴇ ᴛʜᴇᴍᴇᴅ ᴀᴅᴠᴀɴᴄᴇᴅ ɢʀᴏᴜᴘ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ ᴡɪᴛʜ sᴏᴍᴇ ᴍᴀɴʏ ᴜsᴇғᴜʟ ғᴇᴀᴛᴜʀᴇs ᴛʜɪs ʙᴏᴛ ɢɪᴠᴇ ᴠᴀʀɪᴇᴛɪᴇs ᴏғ ғᴇᴀᴛᴜʀᴇs</blockquote>
-<blockquote>ᴜsᴇ ᴛʜᴇ ʙᴜᴛᴛᴏɴs ʙᴇʟᴏᴡ ᴏʀ  /help ᴛᴏ ᴄʜᴇᴄᴋᴏᴜᴛ ᴇᴠᴇɴ ᴍᴏʀᴇ!</me blockquote>
+<blockquote>ᴜsᴇ ᴛʜᴇ ʙᴜᴛᴛᴏɴs ʙᴇʟᴏᴡ ᴏʀ  /help ᴛᴏ ᴄʜᴇᴄᴋᴏᴜᴛ ᴇᴠᴇɴ ᴍᴏʀᴇ!</blockquote>
 sᴜᴘᴘᴏʀᴛ ᴄʜᴀᴛ @EternalsHelplineBot</b>"""
 
 
