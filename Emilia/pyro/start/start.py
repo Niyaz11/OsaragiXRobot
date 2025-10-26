@@ -17,18 +17,9 @@ from Emilia.utils.helper import AUTH_USERS, get_btns
 from Emilia.anime.bot import help_
 
 START_TEXT = """
-Welcome to [{}]({})
-
-This bot give varieties of features such as
-➩ Group Management
-➩ Spammer Protection
-➩ Fun like chatbot
-➩ Ranking, AI System
-➩ Anime Loaded Modules
-
-Use the buttons buttons or /help to checkout even more!
-
-sᴜᴘᴘᴏʀᴛ ᴄʜᴀᴛ @EternalsHelplineBot"""
+<b><blockquote>ʜᴇʟʟᴏ ɪ ᴀᴍ [{}]({}) AI ɪɴᴛᴇʀɢʀᴀᴛᴇᴅ ᴀɴɪᴍᴇ ᴛʜᴇᴍᴇᴅ ᴀᴅᴠᴀɴᴄᴇᴅ ɢʀᴏᴜᴘ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ ᴡɪᴛʜ sᴏᴍᴇ ᴍᴀɴʏ ᴜsᴇғᴜʟ ғᴇᴀᴛᴜʀᴇs ᴛʜɪs ʙᴏᴛ ɢɪᴠᴇ ᴠᴀʀɪᴇᴛɪᴇs ᴏғ ғᴇᴀᴛᴜʀᴇs</blockquote>
+<blockquote>ᴜsᴇ ᴛʜᴇ ʙᴜᴛᴛᴏɴs ʙᴇʟᴏᴡ ᴏʀ  /help ᴛᴏ ᴄʜᴇᴄᴋᴏᴜᴛ ᴇᴠᴇɴ ᴍᴏʀᴇ!<blockquote>
+sᴜᴘᴘᴏʀᴛ ᴄʜᴀᴛ @EternalsHelplineBot</b>"""
 
 
 @Client.on_message(custom_filter.command(commands="start"))
