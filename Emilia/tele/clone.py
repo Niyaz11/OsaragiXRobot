@@ -34,11 +34,9 @@ async def stats_(event):
     active_clones = len(active_clone_clients)
     
     message = (
-        f"**Bot Statistics**\n\n"
+        f"**Bot Statistics**\n"
         f"**Chats**: {chats}\n"
-        f"**Users**: {users}\n"
-        f"**Cloned Bots in Database**: {bots}\n"
-        f"**Active Clone Clients**: {active_clones}\n\n"
+        f"**Users**: {users}"
     )
     await event.reply(message)
 
