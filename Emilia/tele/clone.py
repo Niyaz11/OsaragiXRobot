@@ -340,7 +340,7 @@ async def clone_bot(event):
         )
     if len(event.text.split()) == 1:
         return await event.reply(
-            "Please provide the bot token from @BotFather in order to clone **Emilia**.\n**Example**: `/clone 219218219:jksswq`"
+            "Please provide the bot token from @BotFather in order to clone **bot**.\n**Example**: `/clone 219218219:jksswq`"
         )
     bots = await clone_db.count_documents({})
     token = event.text.split(None, 1)[1]
