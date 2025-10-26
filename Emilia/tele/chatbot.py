@@ -17,7 +17,7 @@ from Emilia.custom_filter import register
 from Emilia.functions.admins import is_admin
 from Emilia.utils.decorators import *
 
-API_KEY = os.getenv("GEMINI_API_KEY", "AIzaSyDzBcTJ51yXZgzlEI9m5llmtFOzNjlS-MI") # Get your API key from Google Gemini API
+API_KEY = os.getenv("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") # Get your API key from Google Gemini API
 client = genai.Client(api_key=API_KEY)
 chatbotdb = db.chatbotto
 convodb = db.gemini_convos
