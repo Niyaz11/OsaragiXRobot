@@ -20,7 +20,7 @@ class Config(object):
     UPDATE_CHANNEL = "AnimeNexusNetwork" # Update Channel Username
     START_PIC = "https://i.ibb.co/DgpFbXsW/tmpfgm5zme3.jpg" # Start Image
     DEV_USERS = [7654385403,7852686677] # Dev Users
-    TOKEN = "8015912062:AAF8J7yQzEjdofklvbiccPwlwF8xLuknugI" # Bot Token from @BotFather
+    TOKEN = "8015912062:AAEa_n5sadzLA-dgbkaRcbf5uQ77Cut4kVY" # Bot Token from @BotFather
     CLONE_LIMIT = 0 # Number of clones your bot can make
 
     EVENT_LOGS = -1002456565415 # Event Logs Chat ID
