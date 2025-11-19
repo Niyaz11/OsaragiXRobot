@@ -217,7 +217,7 @@ async def _update_user_memory(user_id: int, user_text: str, bot_text: str):
             "From the following chat turn, extract at most 3 short facts about the user (preferences, name, style).\n"
             "Return a single bullet list with one fact per line, 10 words max each.\n\n"
             f"User: {user_text}\n"
-            f"Emilia: {bot_text}\n"
+            f"Osaragi: {bot_text}\n"
         )
         cfg = types.GenerateContentConfig(
             temperature=0.2,
