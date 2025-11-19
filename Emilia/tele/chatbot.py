@@ -17,7 +17,7 @@ from Emilia.custom_filter import register
 from Emilia.functions.admins import is_admin
 from Emilia.utils.decorators import *
 
-API_KEY = "AIzaSyBnsgQNpCEj2K1xh7Pd78qJ3iQwWndbRbo" # Get your API key from Google Gemini API
+API_KEY = os.getenv("GEMINI_API_KEY", "AIzaSyDFtS") # Get your API key from Google Gemini API
 client = genai.Client(api_key=API_KEY)
 chatbotdb = db.chatbotto
 convodb = db.gemini_convos
@@ -217,7 +217,7 @@ async def _update_user_memory(user_id: int, user_text: str, bot_text: str):
             "From the following chat turn, extract at most 3 short facts about the user (preferences, name, style).\n"
             "Return a single bullet list with one fact per line, 10 words max each.\n\n"
             f"User: {user_text}\n"
-            f"Osaragi: {bot_text}\n"
+            f"Emilia: {bot_text}\n"
         )
         cfg = types.GenerateContentConfig(
             temperature=0.2,
