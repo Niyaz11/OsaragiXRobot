@@ -64,9 +64,9 @@ async def create_clone_client(user_id, token, bot_id):
 
     try:
         env = os.environ.copy()
-        env["BOT_IS_CLONE"] = "true"
-        env["BOT_TOKEN"] = token
-        env["BOT_OWNER_ID"] = str(user_id)
+        env["EMILIA_IS_CLONE"] = "true"
+        env["EMILIA_TOKEN"] = token
+        env["EMILIA_OWNER_ID"] = str(user_id)
         env["PYTHONUNBUFFERED"] = "1"
 
         # Prepare per-clone log files to capture subprocess output for debugging
