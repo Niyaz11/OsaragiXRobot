@@ -528,7 +528,6 @@ async def set_startpic(event):
             f"**Preview URL:** {url}"
         )
 
-# --- REPLACEMENT: broadcast handler (replace existing broadcast function) ---
 @register(pattern="broadcast")
 async def broadcast(event):
     if not event.reply_to_msg_id:
@@ -559,10 +558,8 @@ async def broadcast(event):
         return await event.reply("Could not retrieve clone client details. Please restart the bot or contact support.")
 
     bot_username = client_data.get('bot_username')
-
-    # Start a dedicated Telethon client for this clone token
-    clone_client = TelegramClient(None, API_ID, API_HASH)
-    try:
+    
+    async with TelegramClient(None, API_ID, API_HASH) as clone_client:
         await clone_client.start(bot_token=clone_info['token'])
 
         args = event.text.split(None, 1)
@@ -579,16 +576,13 @@ async def broadcast(event):
                 await event.reply("Invalid flag. Use `/broadcast -all` or `/broadcast -users` or `/broadcast -chats`")
         else:
             await event.reply("Please provide a mode for broadcasting: `-all`, `-users`, or `-chats`.")
-    except Exception as e:
-        LOGGER.error(f"Broadcast error for @{bot_username}: {e}")
-        await event.reply(f"An error occurred while performing broadcast via @{bot_username}: {e}")
-    finally:
-        try:
-            await clone_client.disconnect()
-        except Exception:
-            pass
 
- # --- REPLACEMENT: targeted_user_broadcast (replace existing function) ---
+async def get_all_chats(client):
+    """Yield chats where the bot is a member one by one."""
+    async for dialog in client.iter_dialogs():
+        if dialog.is_group or dialog.is_channel:
+            yield dialog.entity
+
 async def targeted_user_broadcast(event, reply, clone_client, bot_username):
     """Broadcast to users who have started the bot"""
     user_count = 0
@@ -596,13 +590,9 @@ async def targeted_user_broadcast(event, reply, clone_client, bot_username):
         # Get all dialogs for the specific clone client
         async for dialog in clone_client.iter_dialogs():
             # Only send to private chats (users)
-            if getattr(dialog, "is_user", False) and not getattr(dialog.entity, "bot", False):
+            if dialog.is_user and not dialog.entity.bot:
                 try:
-                    await clone_client.forward_messages(
-                        entity=dialog.id,
-                        messages=reply.id,
-                        from_peer=event.chat_id
-                    )
+                    await clone_client.forward_messages(dialog.id, reply)
                     user_count += 1
                 except errors.FloodWaitError as e:
                     LOGGER.warning(f"FloodWait for {e.seconds} seconds when broadcasting to user {dialog.id}")
@@ -616,52 +606,31 @@ async def targeted_user_broadcast(event, reply, clone_client, bot_username):
     except Exception as e:
         LOGGER.error(f"Error in targeted_user_broadcast: {e}")
         await event.reply(f"Error occurred during user broadcast via @{bot_username}: {str(e)}")
-        
-        await event.reply(f"Broadcasted the message to {user_count} users successfully via @{bot_username}.")
-    except Exception as e:
-        LOGGER.error(f"Error in targeted_user_broadcast: {e}")
-        await event.reply(f"Error occurred during user broadcast via @{bot_username}: {str(e)}")
 
- # --- REPLACEMENT: get_all_chats (keep as async generator) ---
-async def get_all_chats(client):
-    """Yield chats where the bot is a member one by one."""
-    async for dialog in client.iter_dialogs():
-        # dialog.is_group/is_channel might be attributes or methods depending on Telethon version
-        if getattr(dialog, "is_group", False) or getattr(dialog, "is_channel", False):
-            yield dialog.entity
-
- # --- REPLACEMENT: targeted_chat_broadcast (replace existing function) ---
 async def targeted_chat_broadcast(event, reply, clone_client, bot_username):
     """Broadcast to chats where the bot is present"""
+    chats = await get_all_chats(clone_client)
     failed = 0
     chat_count = 0
-    try:
-        async for chat in get_all_chats(clone_client):
-            try:
-                await clone_client.forward_messages(
-                    entity=chat.id,
-                    messages=reply.id,
-                    from_peer=event.chat_id
-                )
-                chat_count += 1
-            except errors.FloodWaitError as e:
-                failed += 1
-                LOGGER.warning(f"FloodWait for {e.seconds} seconds when broadcasting to chat {chat.id}")
-                await sleep(e.seconds)
-                continue
-            except Exception as e:
-                failed += 1
-                LOGGER.debug(f"Failed to broadcast to chat {chat.id}: {e}")
-                continue
-
-        if chat_count > 0:
-            await event.reply(f"Broadcasted the message to {chat_count} chats successfully via @{bot_username}.")
-        else:
-            await event.reply(f"Failed to broadcast the message to chats. Total failed: {failed}")
-    except Exception as e:
-        LOGGER.error(f"Error in targeted_chat_broadcast: {e}")
-        await event.reply(f"Error occurred during chat broadcast via @{bot_username}: {str(e)}")
-
+    for chat in chats:
+        try:
+            await clone_client.forward_messages(chat.id, reply)
+            chat_count += 1
+        except errors.FloodWaitError as e:
+            failed += 1
+            LOGGER.warning(f"FloodWait for {e.seconds} seconds when broadcasting to chat {chat.id}")
+            await sleep(e.seconds)
+            continue
+        except Exception as e:
+            failed += 1
+            LOGGER.debug(f"Failed to broadcast to chat {chat.id}: {e}")
+            continue
+    
+    success = chat_count > 0
+    if success:
+        await event.reply(f"Broadcasted the message to {chat_count} chats successfully via @{bot_username}.")
+    else:
+        await event.reply(f"Failed to broadcast the message to chats. Total failed: {failed}")
 
 @auth(pattern="clonestatus")
 async def clone_status(event):
