@@ -38,7 +38,7 @@ def _setup_emilia_logging():
 
 LOGGER = _setup_emilia_logging()
 
-IS_CLONE = os.environ.get("EMILIA_IS_CLONE", "false").lower() == "true"
+IS_CLONE = os.environ.get("BOT_IS_CLONE", "false").lower() == "true"
 TOKEN = os.environ.get("EMILIA_TOKEN", Config.TOKEN)
 OWNER_ID = int(os.environ.get("EMILIA_OWNER_ID", Config.OWNER_ID))
 
